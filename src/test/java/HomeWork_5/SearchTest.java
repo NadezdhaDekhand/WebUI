@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Locale;
 
-public class Search {
+public class SearchTest {
     private static WebDriver driver;
     private static final String MAIN_PAGE_URL = "http://automationpractice.com";
 
