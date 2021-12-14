@@ -18,7 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CartTest {
@@ -75,6 +75,8 @@ public class CartTest {
         System.out.println(result.getText());
 
     }
+
+
 
 }
 

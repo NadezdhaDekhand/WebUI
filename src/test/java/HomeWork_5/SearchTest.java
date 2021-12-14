@@ -9,9 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+
 import java.time.Duration;
 import java.util.List;
-import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SearchTest {
     private static WebDriver driver;
@@ -36,15 +39,15 @@ public class SearchTest {
     @Test
     public void searchDressTest() {
         driver.get(MAIN_PAGE_URL);
+        final String text = "Dress";
         driver.findElement(By.id("search_query_top")).click();
         driver.findElement(By.id("search_query_top")).sendKeys("Dress");
         driver.findElement(By.name("submit_search")).click();
-        List<WebElement> dressList = driver.findElements(By.xpath("//div[@id=\"center_column\"]//div[@class=\"product-container\"]//a[@class=\"product-name\"]"));
-        Assertions.assertTrue(dressList.size() != 0);
-        for   (WebElement webElement : dressList) {
-            if (webElement.getText().contains("Dress")){
-                return;
+        WebElement result = driver.findElement(By.cssSelector("#center_column > h1 > span.heading-counter"));
+        result.getText();
+        assertEquals(result.getText(),"7 results have been found.");
+        System.out.println(result.getText());
             }
         }
-    }
-}
+
+
