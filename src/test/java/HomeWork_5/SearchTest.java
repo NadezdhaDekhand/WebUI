@@ -9,12 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-
 import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 public class SearchTest {
     private static WebDriver driver;
@@ -28,7 +26,6 @@ public class SearchTest {
         options.addArguments("--maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
     }
 
     @AfterAll
@@ -47,7 +44,7 @@ public class SearchTest {
         result.getText();
         assertEquals(result.getText(),"7 results have been found.");
         System.out.println(result.getText());
-            }
         }
+    }
 
 
