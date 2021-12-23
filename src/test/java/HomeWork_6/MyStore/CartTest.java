@@ -1,12 +1,17 @@
 package HomeWork_6.MyStore;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@Epic("2")
 class CartTest extends BasePageTest {
     @Test
+    @Description("Перейти на страницу корзины")
+    @Link("http://automationpractice.com")
     void goToCart() {
 
         new Cart(getWebDriver()).goToCart();
@@ -15,6 +20,8 @@ class CartTest extends BasePageTest {
         assertEquals(result.getText(), "Your shopping cart");
     }
     @Test
+    @Description("Добавление товара в корзину")
+    @Link("http://automationpractice.com")
     void addToCart() {
 
         webDriver.findElement(By.xpath("//img[@alt='Faded Short Sleeve T-shirts']")).click();

@@ -1,6 +1,9 @@
 package HomeWork_5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@Epic("1")
 public class HomeWorkTest {
     private static WebDriver driver;
     private static String MAIN_PAGE_URL = "http://automationpractice.com";
@@ -34,6 +37,8 @@ public class HomeWorkTest {
     }
 
     @Test
+    @Description("Добавление товара в корзину")
+    @Link("http://automationpractice.com")
     public void testAddToCard() {
         driver.get(MAIN_PAGE_URL);
         driver.findElement(By.xpath("//img[@alt='Faded Short Sleeve T-shirts']")).click();
@@ -47,6 +52,8 @@ public class HomeWorkTest {
     }
 
     @Test
+    @Description("Удалить товар из корзины")
+    @Link("http://automationpractice.com")
     public void testRemoveFromTheCard() {
         driver.get(MAIN_PAGE_URL);
         driver.findElement(By.xpath("//img[@alt='Faded Short Sleeve T-shirts']")).click();
@@ -70,6 +77,8 @@ public class HomeWorkTest {
     }
 
     @Test
+    @Description("Поиск товара")
+    @Link("http://automationpractice.com")
     public void testSearchDress() {
         driver.get(MAIN_PAGE_URL);
 

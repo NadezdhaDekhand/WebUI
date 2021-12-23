@@ -1,12 +1,14 @@
 package HomeWork4;
 
 
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+@Epic("Площадь треугольника")
 class TriangleTest {
 
     @Test
+
     void test1() {
         double result;
         result = Triangle.getArea(5, 6, 5);

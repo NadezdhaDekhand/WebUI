@@ -1,6 +1,9 @@
 package HomeWork_5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -9,10 +12,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
+
 import java.time.Duration;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+@Epic("1")
 public  class LentaTest {
     private static WebDriver driver;
 
@@ -32,6 +37,8 @@ public  class LentaTest {
 
     }
     @Test
+    @Description("Куки")
+    @Link("https://lenta.com/")
     public  void testCooke(){
         driver.get("https://lenta.com/");
         driver.findElement(By.xpath("//a[@class=\"header__catalog\"]")).click();
@@ -40,14 +47,16 @@ public  class LentaTest {
         System.out.println(driver.manage().getCookies());
     }
     @Test
+    @Description("Поиск товара")
+    @Link("https://lenta.com/")
     public void testSearch(){
         driver.get("https://lenta.com/");
         final String text = "лук";
         driver.findElement(By.xpath("//div[@class=\"catalog-search__field-block\"]/input")).sendKeys(text + "\n");
         List<WebElement> itemList = driver.findElements(By.xpath("//div[@class=\"sku-in-search-results__title-block\"]/a"));
-        Assert.assertTrue(itemList.size() != 0);
+        assertTrue(itemList.size() != 0);
         for (int i = 0; i < itemList.size(); i++) {
-            Assert.assertTrue(itemList.get(i).getText().toLowerCase().contains(text));
+            assertTrue(itemList.get(i).getText().toLowerCase().contains(text));
             System.out.println(itemList.get(i).getText());
         }
     }
